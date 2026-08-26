@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import Skill
+from .serializers import SkillSerializer
 
-# Create your views here.
+class SkillListView(generics.ListAPIView):
+    queryset = Skill.objects.prefetch_related('proofs').all()
+    serializer_class = SkillSerializer

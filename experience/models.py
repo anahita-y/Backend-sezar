@@ -11,5 +11,8 @@ class Experience(models.Model):
     image = models.ImageField(null = True , blank = True)
     status = models.CharField(max_length = 1 , choices = Status.choices , default = Status.IN_PROGRESS)
 
+    class Meta:
+        ordering = ['-year']
+        
     def __str__(self):
         return self.title

@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import SocialLink
+from .serializers import SocialLinkSerializer
 
-# Create your views here.
+class SocialLinkListView(generics.ListAPIView):
+    queryset = SocialLink.objects.all()
+    serializer_class = SocialLinkSerializer
