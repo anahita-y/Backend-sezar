@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/6.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
-
+import os 
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -127,7 +129,21 @@ STATIC_URL = "static/"
 
 
 # Email
-# https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
+MAILERS ={
+    "default": {
+        "backend": "django.core.mail.backends.console.EmailBackend",
+        "host": "smtp.gmail.com",
+        "port": 587,
+        "use_tls": True,
+        "username": os.environ.get('EMAIL_HOST_USER', 'sezarweb2025@gmail.com'),
+        "password": os.environ.get('EMAIL_HOST_PASSWORD','maif qqhv aflw umhd'),
+
+    }
+}
+
+DEFAULT_FROM_EMAIL = 'sezarweb2025@gmail.com'
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'sezarweb2025@gmail.com')
+
 
 MAILERS = {
     "default": {
@@ -135,11 +151,11 @@ MAILERS = {
     },
 }
 
-REST_FARMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES' : [
-        'rest_framework.renderers.JSONRenderer',
-    ],
-}
+#REST_FARMEWORK = {
+ #   'DEFAULT_PERMISSION_CLASSES' : [
+  #      'rest_framework.renderers.JSONRenderer',
+   # ],
+#}
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
