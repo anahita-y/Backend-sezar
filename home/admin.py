@@ -11,7 +11,7 @@ class ProfileAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('اطلاعات اصلی', {
-            'fields': ('name', 'role_title', 'subtitle', 'bio')
+            'fields': ('name', 'role_title', 'subtitle', 'bio', 'image')
         }),
         ('وضعیت دسترسی', {
             'fields': ('is_available', 'availability_label'),

@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Tehran"
 
 USE_I18N = True
 
@@ -129,27 +129,15 @@ STATIC_URL = "static/"
 
 
 # Email
-MAILERS ={
-    "default": {
-        "backend": "django.core.mail.backends.console.EmailBackend",
-        "host": "smtp.gmail.com",
-        "port": 587,
-        "use_tls": True,
-        "username": os.environ.get('EMAIL_HOST_USER', 'sezarweb2025@gmail.com'),
-        "password": os.environ.get('EMAIL_HOST_PASSWORD','maif qqhv aflw umhd'),
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'sezarweb2025@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-    }
-}
-
-DEFAULT_FROM_EMAIL = 'sezarweb2025@gmail.com'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'sezarweb2025@gmail.com')
-
-
-MAILERS = {
-    "default": {
-        "BACKEND": "django.core.mail.backends.console.EmailBackend",
-    },
-}
 
 #REST_FARMEWORK = {
  #   'DEFAULT_PERMISSION_CLASSES' : [

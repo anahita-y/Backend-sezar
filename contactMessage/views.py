@@ -10,8 +10,8 @@ class ContactMessageCreateView(generics.CreateAPIView):
     def perform_create(self , serializer):
         instance = serializer.save()
 
-        send_mail(subject = "f پیام جدیداز {instance.name} -{instance.topic}" ,
-                   message = "f نام : {instance.name}\n ایمیل : {instance.email}\nموضوع : {instance.topic}\n\nمتن پیام : \n{instance.messageText}",
+        send_mail(subject = f" پیام جدیداز {instance.name} -{instance.topic}" ,
+                   message = f" نام : {instance.name}\n ایمیل : {instance.email}\nموضوع : {instance.topic}\n\nمتن پیام : \n{instance.messageText}",
                     from_email = settings.DEFAULT_FROM_EMAIL, 
                     recipient_list = [settings.ADMIN_EMAIL] , 
                     fail_silently = True ,)

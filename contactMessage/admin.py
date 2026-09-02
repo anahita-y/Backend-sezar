@@ -14,7 +14,7 @@ class ContactMessageAdmin(admin.ModelAdmin):
         ('اطلاعات فرستنده' , {'fields' : ('name' , 'email')}),
         ('محتوای پیام' , {'fields' : ('topic' , 'messageText')}),
         ('وضعیت' , {'fields' : ('status' , 'created_at'),
-            'classes' : ('collapse'),}),
+            'classes' : ('collapse',)}),
     )
 
 #admin.site.register(ContactMessage)

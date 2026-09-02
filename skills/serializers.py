@@ -8,12 +8,12 @@ class  SkillProofSerializer(serializers.ModelSerializer):
         model = SkillProof
         fields = ['id' , 'certificate' , 'project'] 
 
-        def get_certificate(self , obj) :
-            if obj.certificate:
-                request = self.context.get('request')
-                if request:
-                    return request.build_absolute_uri(obj.certificate.url)
-                return None
+    def get_certificate(self , obj) :
+        if obj.certificate:
+            request = self.context.get('request')
+            if request:
+                return request.build_absolute_uri(obj.certificate.url)
+            return None
 
 
 class SkillSerializer(serializers.ModelSerializer):

@@ -9,10 +9,10 @@ class ExperienceSerializer(serializers.ModelSerializer):
         model = Experience
         fields = ['id' , 'year' , 'title' , 'short_description' , 'image' , 'status' , 'status_display']
 
-        def get_image(self, obj):
-            if obj.image :
-                request= self.context.get('request') 
-                if request :
-                    return request.build_absolute_uri(obj.image.url)
-                return obj.image.url
-            return None
+    def get_image(self, obj):
+        if obj.image :
+            request= self.context.get('request') 
+            if request :
+                return request.build_absolute_uri(obj.image.url)
+            return obj.image.url
+        return None

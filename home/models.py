@@ -5,6 +5,7 @@ class Profile(models.Model):
     role_title = models.CharField(max_length = 100)
     subtitle = models.CharField(max_length = 100 , blank = True)
     bio = models.TextField()
+    image = models.ImageField(upload_to = 'profile/')
     is_available = models.BooleanField(default = True)
     availability_label = models.CharField(max_length = 100 , blank = True)
 

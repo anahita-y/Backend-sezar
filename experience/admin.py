@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Experience
 
 @admin.register(Experience)
-class Experience(admin.ModelAdmin):
+class ExperienceAdmin(admin.ModelAdmin):
     list_display = ['year' , 'title' , 'status' , 'status_badge']
     list_filter = ['status' , 'year']
     list_editable = ['status']
