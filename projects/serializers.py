@@ -4,7 +4,7 @@ from .models import Technology , Project , ProjectDetail
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
         model = Technology
-        fields = ['id' , 'name' , 'image']
+        fields = ['id' , 'name' ]
 
 class ProjectDetailSerializer(serializers.ModelSerializer):
     class Meta:
