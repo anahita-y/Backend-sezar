@@ -5,8 +5,16 @@ class ProfileSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
     class Meta:
         model = Profile
-        fields = '__all__'
+        fields = ['id' , 'name' , 'role_title' , 'subtitle' , 'bio' , 'image' , 'is_available' , 'availability_label']
 
+    def get_image(self , obj):
+        if obj.image :
+            request = self.context.get('request')
+            if request:
+                return request.build_absolute_uri(obj.image.url)
+            return obj.image.url
+        return None
+        
 class SiteDocumentSerializer(serializers.ModelSerializer):
     file = serializers.SerializerMethodField()
 
