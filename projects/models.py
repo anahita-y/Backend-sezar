@@ -25,7 +25,7 @@ class ProjectDetail(models.Model):
     challenge = models.TextField()
     solution = models.TextField()
     result = models.TextField()
-    demo_link = models.URLField()
+    demo_link = models.URLField(null = True , blank = True)
     project = models.OneToOneField(Project, on_delete = models.CASCADE, related_name = 'detail')
 
     def __str__(self):
