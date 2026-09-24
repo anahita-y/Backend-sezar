@@ -10,9 +10,10 @@ class Experience(models.Model):
     short_description = models.TextField()
     image = models.ImageField(null = True , blank = True)
     status = models.CharField(max_length = 1 , choices = Status.choices , default = Status.IN_PROGRESS)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['-year']
+        ordering = ['-created_at']
         
     def __str__(self):
         return self.title
