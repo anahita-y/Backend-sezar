@@ -15,7 +15,12 @@ class Project(models.Model):
     short_description = models.CharField(max_length = 400)
     technologies = models.ManyToManyField(Technology)
     image = models.ImageField()
+    created_at = models.DateTimeField(auto_now_add = True)
 
+    class Meta: 
+        ordering = ['-created_at']
+
+        
     def __str__(self):
         return self.title
 
