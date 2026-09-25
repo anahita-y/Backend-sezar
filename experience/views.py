@@ -3,9 +3,8 @@ from .models import Experience
 from .serializers import ExperienceSerializer
 
 class ExperienceListView(generics.ListAPIView):
-    queryset = Experience.objects.all().order_by('-year')
+    queryset = Experience.objects.all().order_by('-id')
     serializer_class = ExperienceSerializer
-
 
 class ExperienceDetailView(generics.RetrieveAPIView):
     queryset = Experience.objects.all()
